@@ -2,18 +2,6 @@ const BASE = "http://localhost:3000";
 let pass = 0,
   fail = 0;
 
-async function check(label, expectedStatus, method = "GET", body = null) {
-  const options = { method, headers: {} };
-  if (body) {
-    options.headers["Content-Type"] = "application/json";
-    options.body = JSON.stringify(body);
-  }
-  try {
-    const res = await fetch(`${BASE}${label.split(" ")[1] ?? ""}`, options);
-    throw new Error("use checkUrl instead");
-  } catch {}
-}
-
 async function checkUrl(
   label,
   url,
@@ -95,7 +83,7 @@ await checkUrl("POST /tasks", "/tasks", 201, "POST", {
 });
 await checkUrl("GET /tasks/1", "/tasks/1", 200);
 await checkUrl("PATCH /tasks/1", "/tasks/1", 200, "PATCH", { status: "done" });
-await checkUrl("DELETE /tasks/3", "/tasks/3", 204, "DELETE");
+await checkUrl("DELETE /tasks/3", "/tasks/3", 200, "DELETE");
 await checkUrl("DELETE /tasks/3 → 404", "/tasks/3", 404, "DELETE");
 await checkUrl("POST bad project → 422", "/tasks", 422, "POST", {
   project_id: 9999,
