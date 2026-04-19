@@ -299,7 +299,9 @@ export const tasksRouter = new Elysia({ prefix: "/tasks" })
           .query("DELETE FROM tasks WHERE id = ? RETURNING id")
           .get(params.id);
         if (!result) throw notFound("Task");
-        return new Response(null, { status: 204 });
+        return Response.json({
+          message: `Task ${params.id} deleted successfully.`,
+        }); 
       } catch (err) {
         return errorResponse(err);
       }
