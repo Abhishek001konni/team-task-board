@@ -1,7 +1,8 @@
 import { Database } from "bun:sqlite";
-import { readFileSync, mkdirSync } from "fs";
+import { readFileSync, mkdirSync, rmSync } from "fs";
 
 mkdirSync("data", { recursive: true });
+rmSync("data/app.db", { force: true });
 
 const db = new Database("data/app.db", { create: true });
 db.run("PRAGMA foreign_keys = ON;");
