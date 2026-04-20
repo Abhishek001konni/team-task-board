@@ -85,7 +85,7 @@ team-task-board/
 
 ## Contributing
 
-Use a short-lived branch, push your changes, and open a pull request into `main` so reviews and CI (if configured) can run before merge.
+Use a short-lived branch and push your changes. Open a pull request into `main` if your team uses review or CI gates; if you have direct access to `main`, you can merge locally and run `git push origin main` instead.
 
 ---
 
