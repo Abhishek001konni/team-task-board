@@ -202,7 +202,9 @@ export const usersRouter = new Elysia({ prefix: "/users" })
           .query("DELETE FROM users WHERE id = ? RETURNING id")
           .get(params.id);
         if (!result) throw notFound("User");
-        return new Response(null, { status: 204 });
+        return Response.json({
+          message: `User ${params.id} deleted successfully.`,
+        });
       } catch (err) {
         return errorResponse(err);
       }

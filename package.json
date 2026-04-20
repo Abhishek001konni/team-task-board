@@ -1,8 +1,12 @@
 {
   "name": "team-task-board",
-  "module": "index.ts",
+  "module": "app/main.js",
   "type": "module",
   "private": true,
+  "scripts": {
+    "start": "bun run app/main.js",
+    "dev": "bun --hot run app/main.js"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

@@ -216,7 +216,9 @@ export const projectsRouter = new Elysia({ prefix: "/projects" })
           .query("DELETE FROM projects WHERE id = ? RETURNING id")
           .get(params.id);
         if (!result) throw notFound("Project");
-        return new Response(null, { status: 204 });
+        return Response.json({
+          message: `Project ${params.id} deleted successfully.`,
+        });
       } catch (err) {
         return errorResponse(err);
       }
