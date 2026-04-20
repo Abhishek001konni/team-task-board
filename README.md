@@ -87,3 +87,9 @@ team-task-board/
 | Tasks | `GET /tasks` `POST /tasks` `GET /tasks/:id` `PATCH /tasks/:id` `DELETE /tasks/:id` |
 
 All list endpoints support **pagination** (`page`, `page_size`) and **filtering** (by status, owner, assignee, etc.).
+
+---
+
+## Contributors
+
+- Aayush Sapkota ([@sapkota-aayush](https://github.com/sapkota-aayush))
