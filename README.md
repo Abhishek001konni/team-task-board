@@ -62,19 +62,30 @@ bun test.js
 
 ```
 team-task-board/
-├── main.js              # Entry point, Elysia app setup
-├── database.js          # DB connection and init
-├── pagination.js        # Pagination helper
-├── errors.js            # Error classes and response helpers
-├── routers/
-│   ├── users.js         # User CRUD endpoints
-│   ├── projects.js      # Project CRUD endpoints
-│   └── tasks.js         # Task CRUD endpoints
+├── app/
+│   ├── main.js          # Entry point, Elysia app setup
+│   ├── database.js      # DB connection and init
+│   ├── pagination.js    # Pagination helper
+│   ├── errors.js        # Error classes and response helpers
+│   └── routers/
+│       ├── users.js     # User CRUD endpoints
+│       ├── projects.js  # Project CRUD endpoints
+│       └── tasks.js     # Task CRUD endpoints
 ├── db/
 │   ├── schema.sql       # Table definitions
 │   └── seed.sql         # Sample data
+├── openapi/
+│   └── openapi.json     # OpenAPI description of the API
+├── postman/
+│   └── collection.json  # Postman collection for manual testing
 ├── test.js              # Smoke tests (cross-platform, recommended)
 ```
+
+---
+
+## Contributing
+
+Use a short-lived branch, push your changes, and open a pull request into `main` so reviews and CI (if configured) can run before merge.
 
 ---
 
@@ -87,3 +98,4 @@ team-task-board/
 | Tasks | `GET /tasks` `POST /tasks` `GET /tasks/:id` `PATCH /tasks/:id` `DELETE /tasks/:id` |
 
 All list endpoints support **pagination** (`page`, `page_size`) and **filtering** (by status, owner, assignee, etc.).
+
